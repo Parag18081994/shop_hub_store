@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shop_hub_store/controllers/auth_controller.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
 
@@ -29,11 +31,32 @@ class RegisterScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            Image.asset(
-              'assets/images/abc.png',
-              width: 100,
-              height: 100,
+            Stack(
+              children: [
+                CircleAvatar(
+                  radius: 65,
+                  child: Icon(
+                    Icons.person_3,
+                    size: 70,
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  top: 15,
+                  child: Icon(
+                    CupertinoIcons.photo,
+                  ),
+                )
+              ],
             ),
+            SizedBox(
+              height: 15,
+            ),
+            // Image.asset(
+            //   'assets/images/abc.png',
+            //   width: 100,
+            //   height: 100,
+            // ),
             SizedBox(
               height: 15,
             ),
