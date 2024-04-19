@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shop_hub_store/controllers/auth_controller.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
 
@@ -10,6 +11,14 @@ class RegisterScreen extends StatelessWidget {
   late String email = '';
   late String fullName = '';
   late String password = '';
+
+  selectGalleryImage() async {
+    await _authController.pickProfileImage(ImageSource.gallery);
+  }
+
+  captureImage() async {
+    await _authController.pickProfileImage(ImageSource.camera);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +52,13 @@ class RegisterScreen extends StatelessWidget {
                 Positioned(
                   right: 0,
                   top: 15,
-                  child: Icon(
-                    CupertinoIcons.photo,
+                  child: IconButton(
+                    onPressed: () {
+                      selectGalleryImage();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.photo,
+                    ),
                   ),
                 )
               ],
