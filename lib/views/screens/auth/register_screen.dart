@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shop_hub_store/controllers/auth_controller.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  //final AuthController _authController = AuthController();
+  final AuthController _authController = AuthController();
   late String email = '';
   late String fullName = '';
   late String password = '';
@@ -108,9 +109,8 @@ class RegisterScreen extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  print(email);
-                  print(fullName);
-                  print(password);
+                  _authController.createNewUser(email, fullName, password);
+                  print("success");
                 } else {
                   print('Not valid');
                 }
