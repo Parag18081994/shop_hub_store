@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shop_hub_store/views/screens/auth/register_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-//  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends State<LoginScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+//  const LoginScreen({super.key});
   late String email = '';
+
   late String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
