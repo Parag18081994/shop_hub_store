@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:shop_hub_store/controllers/auth_controller.dart';
 import 'package:shop_hub_store/views/screens/auth/register_screen.dart';
+import 'package:shop_hub_store/views/screens/map_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -8,12 +11,37 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final AuthController _authController = AuthController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _isLoading = false;
 
 //  const LoginScreen({super.key});
-  late String email = '';
+  late String email;
 
-  late String password = '';
+  late String password;
+  loginUser() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+      String res = await _authController.loginUser(email, password);
+      print(res);
+      if (res == 'success') {
+        setState(() {
+          _isLoading = false;
+        });
+        Get.to(MapScreen());
+        Get.snackbar('Login success', 'You are now logged in',
+            backgroundColor: Color.fromARGB(255, 12, 101, 173),
+            colorText: Colors.white);
+      } else {
+        Get.snackbar('Error occured', res.toString(),
+            backgroundColor: Color.fromARGB(255, 12, 101, 173),
+            colorText: Colors.white,
+            snackPosition: SnackPosition.BOTTOM);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,13 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               InkWell(
                 onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    print("Logged in ");
-                    print(email);
-                    print(password);
-                  } else {
-                    print("unable to auntheicate user");
-                  }
+                  loginUser();
                 },
                 child: Container(
                   height: 50,
@@ -108,15 +130,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Color(0xFF103DE5),
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        letterSpacing: 2,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: _isLoading
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              letterSpacing: 2,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                   ),
                 ),
               ),
