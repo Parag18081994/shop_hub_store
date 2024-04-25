@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop_hub_store/controllers/auth_controller.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
@@ -15,6 +16,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final AuthController _authController = AuthController();
+  bool _isLoading = false;
 
   late String email;
 
@@ -38,6 +40,83 @@ class _RegisterScreenState extends State<RegisterScreen> {
     setState(() {
       _image = im;
     });
+  }
+
+  registerUser() async {
+    if (_image != null) {
+      if (_formKey.currentState!.validate()) {
+        setState(() {
+          _isLoading = true;
+        });
+        String res = await _authController.createNewUser(
+            email, fullName, password, _image);
+        setState(() {
+          _isLoading = false;
+        });
+
+        if (res == 'success') {
+          setState(() {
+            _isLoading = false;
+          });
+          Get.to(LoginScreen());
+          Get.snackbar(
+            'Success',
+            'Account has been created successfully',
+            backgroundColor: Color.fromARGB(255, 12, 101, 173),
+            colorText: Colors.white,
+            margin: EdgeInsets.all(
+              15,
+            ),
+            icon: Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
+          );
+        } else {
+          Get.snackbar(
+            'Error1',
+            res.toString(),
+            backgroundColor: Color.fromARGB(255, 12, 101, 173),
+            colorText: Colors.white,
+            snackPosition: SnackPosition.BOTTOM,
+            margin: EdgeInsets.all(
+              15,
+            ),
+            icon: Icon(
+              Icons.message,
+              color: Colors.white,
+            ),
+          );
+        }
+      } else {
+        Get.snackbar(
+          'Form',
+          'Form Field is not valid',
+          backgroundColor: Color.fromARGB(255, 12, 101, 173),
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          margin: EdgeInsets.all(
+            15,
+          ),
+          icon: Icon(
+            Icons.message,
+            color: Colors.white,
+          ),
+        );
+      }
+    } else {
+      Get.snackbar('No Image', 'Please upload your image',
+          backgroundColor: Color.fromARGB(255, 12, 101, 173),
+          colorText: Colors.white,
+          snackPosition: SnackPosition.BOTTOM,
+          margin: EdgeInsets.all(
+            15,
+          ),
+          icon: Icon(
+            Icons.message,
+            color: Colors.white,
+          ));
+    }
   }
 
   @override
@@ -172,13 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 InkWell(
                   onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      _authController.createNewUser(
-                          email, fullName, password, _image);
-                      print("success");
-                    } else {
-                      print('Not valid');
-                    }
+                    registerUser();
                   },
                   child: Container(
                     height: 50,
@@ -187,15 +260,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Color(0xFF103DE5),
                         borderRadius: BorderRadius.circular(10)),
                     child: Center(
-                      child: Text(
-                        "Register",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          letterSpacing: 2,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: _isLoading
+                          ? CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                          : Text(
+                              "Register",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                letterSpacing: 2,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                     ),
                   ),
                 ),
