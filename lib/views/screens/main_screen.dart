@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_hub_store/views/screens/account_screen.dart';
+import 'package:shop_hub_store/views/screens/cart_screen.dart';
+import 'package:shop_hub_store/views/screens/category_screen.dart';
+import 'package:shop_hub_store/views/screens/favorite_screen.dart';
+import 'package:shop_hub_store/views/screens/home_scren.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,10 +14,28 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int pageIndex = 0;
+
+  List<Widget> _pages = [
+    HomeScreen(),
+    CategoryScreen(),
+    CartScreen(),
+    FavoriteScreen(),
+    AccountScreen()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: (value) {
+          setState(() {
+            pageIndex = value;
+          });
+        },
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Color(0xFF103DE5),
+        currentIndex: pageIndex,
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -39,6 +62,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+      body: _pages[pageIndex],
     );
   }
 }

@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:shop_hub_store/views/screens/auth/main_screen.dart';
+import 'package:shop_hub_store/views/screens/main_screen.dart';
 import 'package:shop_hub_store/views/screens/home_scren.dart';
 
 class MapScreen extends StatefulWidget {
