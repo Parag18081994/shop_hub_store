@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
+          icon: Image.asset('assets/icons/store-1.png'),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset('assets/icons/store-1.png'),
+          label: 'Home',
+        )
+      ]),
+    );
+  }
+}
