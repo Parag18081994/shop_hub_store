@@ -35,6 +35,9 @@ class _LoginScreenState extends State<LoginScreen> {
             backgroundColor: Color.fromARGB(255, 12, 101, 173),
             colorText: Colors.white);
       } else {
+        setState(() {
+          _isLoading = false; // Stop the circular progress indicator
+        });
         Get.snackbar('Error occured', res.toString(),
             backgroundColor: Color.fromARGB(255, 12, 101, 173),
             colorText: Colors.white,
@@ -100,6 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onChanged: (value) {
                   password = value;
                 },
+                obscureText: true,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Please password must not be empty";
