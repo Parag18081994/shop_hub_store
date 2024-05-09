@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_hub_store/views/screens/category_screen.dart';
 
 class CategoryTextWidget extends StatefulWidget {
   const CategoryTextWidget({Key? key});
@@ -55,7 +57,9 @@ class _CategoryTextWidgetState extends State<CategoryTextWidget> {
                         ),
                       ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(CategoryScreen());
+                      },
                       icon: Icon(
                         Icons.arrow_forward_ios,
                       ),

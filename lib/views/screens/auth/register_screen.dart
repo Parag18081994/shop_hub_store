@@ -7,12 +7,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:shop_hub_store/controllers/auth_controller.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
 
-class RegisterScreen extends StatefulWidget {
+class CustomerRegisterScreen extends StatefulWidget {
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<CustomerRegisterScreen> createState() => _CustomerRegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _CustomerRegisterScreenState extends State<CustomerRegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final AuthController _authController = AuthController();
@@ -58,7 +58,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           setState(() {
             _isLoading = false;
           });
-          Get.to(LoginScreen());
+          Get.to(CustomerLoginScreen());
           Get.snackbar(
             'Success',
             'Account has been created successfully',
@@ -283,7 +283,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return LoginScreen();
+                      return CustomerLoginScreen();
                     }));
                   },
                   child: Text(
