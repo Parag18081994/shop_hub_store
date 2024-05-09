@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shop_hub_store/vendor/views/auth/vendor_registration_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/register_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/welcome_screens/welcome_login_screen.dart';
 
@@ -72,19 +73,26 @@ class _WelcomeRegisterScreenState extends State<WelcomeRegisterScreen> {
             Positioned(
               top: screenHeight * 0.77,
               left: screensWidth * 0.07,
-              child: Container(
-                width: screensWidth * 0.85,
-                height: screenHeight * 0.085,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(9),
-                  color: Colors.white,
-                ),
-                child: Center(
-                  child: Text(
-                    'Register as Seller',
-                    style: TextStyle(
-                      fontSize: screenHeight * 0.022,
-                      fontWeight: FontWeight.bold,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return VendorRegistrationScreen();
+                  }));
+                },
+                child: Container(
+                  width: screensWidth * 0.85,
+                  height: screenHeight * 0.085,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Register as Vendor',
+                      style: TextStyle(
+                        fontSize: screenHeight * 0.022,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

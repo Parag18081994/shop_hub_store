@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shop_hub_store/vendor/views/auth/vendor_auth_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/welcome_screens/welcome_register_screen.dart';
 
@@ -72,19 +73,26 @@ class _WelcomeLoginScreenState extends State<WelcomeLoginScreen> {
             Positioned(
               top: screenHeight * 0.77,
               left: screensWidth * 0.07,
-              child: Container(
-                width: screensWidth * 0.85,
-                height: screenHeight * 0.085,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(9),
-                  color: Colors.white,
-                ),
-                child: Center(
-                  child: Text(
-                    'Login as Seller',
-                    style: TextStyle(
-                      fontSize: screenHeight * 0.022,
-                      fontWeight: FontWeight.bold,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return VendorAuthScreen();
+                  }));
+                },
+                child: Container(
+                  width: screensWidth * 0.85,
+                  height: screenHeight * 0.085,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Login as Vendor',
+                      style: TextStyle(
+                        fontSize: screenHeight * 0.022,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
