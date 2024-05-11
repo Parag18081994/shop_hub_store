@@ -125,7 +125,7 @@ class _WelcomeRegisterScreenState extends State<WelcomeRegisterScreen> {
                     child: Text(
                       'Login',
                       style: TextStyle(
-                        color: Colors.blue.shade300,
+                        color: Colors.blue.shade800,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

@@ -23,7 +23,8 @@ class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
 
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    // target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(39.7297, 121.8479),
     zoom: 14.4746,
   );
 

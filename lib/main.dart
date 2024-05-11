@@ -3,7 +3,11 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_hub_store/vendor/provider/product_provider.dart';
+import 'package:shop_hub_store/vendor/views/auth/vendor_auth_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/login_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/welcome_screens/welcome_register_screen.dart';
 
@@ -18,7 +22,19 @@ void main() async {
               projectId: "shop-hub-store",
               storageBucket: "gs://shop-hub-store.appspot.com"))
       : await Firebase.initializeApp();
-  runApp(const MyApp());
+
+  // runApp(const MyApp());
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (
+        _,
+      ) {
+        return ProductProvider();
+      })
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -53,6 +69,8 @@ class MyApp extends StatelessWidget {
       ),
       //  home: LoginScreen(),
       home: WelcomeRegisterScreen(),
+      builder: EasyLoading.init(),
+      //  home: VendorAuthScreen(),
     );
   }
 }

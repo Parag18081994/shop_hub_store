@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_hub_store/vendor/views/screens/logout_screen.dart';
 import 'package:shop_hub_store/views/screens/account_screen.dart';
 import 'package:shop_hub_store/views/screens/cart_screen.dart';
 import 'package:shop_hub_store/views/screens/category_screen.dart';
@@ -21,7 +22,8 @@ class _MainScreenState extends State<MainScreen> {
     CategoryScreen(),
     CartScreen(),
     FavoriteScreen(),
-    AccountScreen()
+    AccountScreen(),
+    LogoutScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,12 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset('assets/images/account.svg'),
             label: 'account',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.logout,
+            ),
+            label: 'Logout',
           ),
         ],
       ),
