@@ -73,7 +73,7 @@ class EarningsScreen extends StatelessWidget {
                         height: 150,
                         width: MediaQuery.of(context).size.width * 0.5,
                         decoration: BoxDecoration(
-                          color: Colors.yellow.shade900,
+                          color: Colors.blue.shade500,
                           borderRadius: BorderRadius.circular(32),
                         ),
                         child: Column(
@@ -103,7 +103,7 @@ class EarningsScreen extends StatelessWidget {
                         height: 150,
                         width: MediaQuery.of(context).size.width * 0.5,
                         decoration: BoxDecoration(
-                          color: Colors.yellow.shade900,
+                          color: Colors.blue.shade500,
                           borderRadius: BorderRadius.circular(32),
                         ),
                         child: Column(
@@ -137,7 +137,7 @@ class EarningsScreen extends StatelessWidget {
                           height: 50,
                           width: MediaQuery.of(context).size.width - 60,
                           decoration: BoxDecoration(
-                              color: Colors.pink.shade800,
+                              color: Colors.blue.shade800,
                               borderRadius: BorderRadius.circular(9)),
                           child: Center(
                             child: Text(

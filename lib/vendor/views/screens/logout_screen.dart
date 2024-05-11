@@ -19,10 +19,27 @@ class LogoutScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => WelcomeRegisterScreen()),
             );
           },
-          child: Text(
-            'Sign Out',
-            style: TextStyle(
-                fontSize: 20, letterSpacing: 4, fontWeight: FontWeight.bold),
+          child: SizedBox(
+            width: 150,
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade800,
+                borderRadius: BorderRadius.circular(
+                  8,
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  'Sign Out',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      letterSpacing: 4,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
           ),
         ),
       ),

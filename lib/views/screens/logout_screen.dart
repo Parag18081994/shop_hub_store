@@ -22,7 +22,7 @@ class LogoutScreen extends StatelessWidget {
           child: Text(
             'Sign Out',
             style: TextStyle(
-                fontSize: 20, letterSpacing: 4, fontWeight: FontWeight.bold),
+                fontSize: 20, letterSpacing: 2, fontWeight: FontWeight.bold),
           ),
         ),
       ),

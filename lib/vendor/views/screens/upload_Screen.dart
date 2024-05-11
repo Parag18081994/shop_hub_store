@@ -96,7 +96,7 @@ class UploadScreen extends StatelessWidget {
             child: Container(
               height: 50,
               decoration: BoxDecoration(
-                color: Colors.pink,
+                color: Colors.blue.shade800,
                 borderRadius: BorderRadius.circular(
                   8,
                 ),
@@ -106,7 +106,7 @@ class UploadScreen extends StatelessWidget {
                   'Upload Product',
                   style: TextStyle(
                     color: Colors.white,
-                    letterSpacing: 5,
+                    letterSpacing: 2,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

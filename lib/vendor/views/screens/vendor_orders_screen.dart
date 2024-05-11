@@ -65,7 +65,7 @@ class VendorOrderScreen extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.red),
+                                    color: Colors.blue.shade800),
                               ),
                         trailing: Text(
                           "\$" + data['price'].toStringAsFixed(2),
@@ -78,7 +78,7 @@ class VendorOrderScreen extends StatelessWidget {
                       ExpansionTile(
                         title: Text(
                           'Order Details',
-                          style: TextStyle(color: Colors.pink.shade900),
+                          style: TextStyle(color: Colors.blue.shade800),
                         ),
                         subtitle: Text(
                           'View Order Details',
@@ -108,7 +108,7 @@ class VendorOrderScreen extends StatelessWidget {
                                     Text(
                                       data['quantity'].toString(),
                                       style: TextStyle(
-                                          color: Colors.pink.shade900),
+                                          color: Colors.blue.shade800),
                                     ),
                                   ],
                                 )
@@ -144,7 +144,7 @@ class VendorOrderScreen extends StatelessWidget {
                                             data['orderDate'].toDate(),
                                           ),
                                       style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Colors.blue.shade800,
                                       ),
                                     ),
                                   ),

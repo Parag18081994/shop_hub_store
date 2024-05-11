@@ -63,7 +63,7 @@ class _GeneralScreenState extends State<GeneralScreen>
                 labelText: 'Enter Product Name',
                 labelStyle: TextStyle(
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 4,
+                  letterSpacing: 2,
                 ),
               ),
             ),
@@ -85,7 +85,7 @@ class _GeneralScreenState extends State<GeneralScreen>
                 labelText: 'Enter Product Price',
                 labelStyle: TextStyle(
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 4,
+                  letterSpacing: 2,
                 ),
               ),
             ),
@@ -108,7 +108,7 @@ class _GeneralScreenState extends State<GeneralScreen>
                 labelText: 'Enter Product Quantity',
                 labelStyle: TextStyle(
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 4,
+                  letterSpacing: 2,
                 ),
               ),
             ),
@@ -121,7 +121,7 @@ class _GeneralScreenState extends State<GeneralScreen>
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 4),
+                      letterSpacing: 2),
                 ),
                 items: _categoryList.map<DropdownMenuItem<dynamic>>((e) {
                   return DropdownMenuItem(value: e, child: Text(e));
@@ -135,7 +135,7 @@ class _GeneralScreenState extends State<GeneralScreen>
             TextFormField(
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Enter Product DEscription';
+                  return 'Enter Product Description';
                 } else {
                   return null;
                 }
@@ -147,9 +147,8 @@ class _GeneralScreenState extends State<GeneralScreen>
               minLines: 3,
               maxLength: 800,
               decoration: InputDecoration(
-                hintText: 'Enter Product Description',
-                labelText: 'Product Description',
-              ),
+                  hintText: 'Enter Product Description',
+                  labelText: 'Product Description'),
             )
           ],
         ),

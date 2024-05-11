@@ -35,7 +35,7 @@ class _MainVendorScreenState extends State<MainVendorScreen> {
         },
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.pink,
+        selectedItemColor: Colors.blue.shade800,
         items: [
           BottomNavigationBarItem(
             icon: Icon(

@@ -54,7 +54,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         slivers: [
           SliverAppBar(
             expandedHeight: 200,
-            backgroundColor: Colors.pink,
+            backgroundColor: Colors.blue.shade800,
             flexibleSpace: FlexibleSpaceBar(
               background: LayoutBuilder(
                 builder: (context, constraints) {
