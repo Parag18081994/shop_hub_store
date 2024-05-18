@@ -188,7 +188,9 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
           onTap: () {
+            print("outside Save button");
             if (_formKey.currentState!.validate()) {
+              print("Inside Save button");
               EasyLoading.show(status: 'Please wait');
               _vendorController
                   .vendorRegistrationForm(businessName, emailAddress,
@@ -196,6 +198,7 @@ class _VendorRegistrationScreenState extends State<VendorRegistrationScreen> {
                   .whenComplete(() {
                 EasyLoading.dismiss();
               });
+              print("After input");
             } else {
               print('false');
             }

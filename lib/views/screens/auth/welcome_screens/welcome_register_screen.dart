@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shop_hub_store/vendor/views/auth/vendor_auth_screen.dart';
 import 'package:shop_hub_store/vendor/views/auth/vendor_registration_screen.dart';
+import 'package:shop_hub_store/vendor/views/screens/landing_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/register_screen.dart';
 import 'package:shop_hub_store/views/screens/auth/welcome_screens/welcome_login_screen.dart';
 
@@ -76,7 +78,7 @@ class _WelcomeRegisterScreenState extends State<WelcomeRegisterScreen> {
               child: InkWell(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return VendorRegistrationScreen();
+                    return VendorAuthScreen();
                   }));
                 },
                 child: Container(
